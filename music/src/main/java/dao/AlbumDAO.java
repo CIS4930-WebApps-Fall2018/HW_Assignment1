@@ -13,27 +13,39 @@ public class AlbumDAO {
         this.jdbcTemplate = jdbcTemp;
     }
 
-    private Collection<Track> getTracks() {
-        Collection<Track> trackCollection = new ArrayList<Track>();
-/*
-        this.jdbcTemplate.query(
-                "SELECT id, title FROM tracks WHERE album = ?", new Object[] { this.id },
-                (rs, rowNum) -> new Track(rs.getInt("id"), rs.getString("title"))
-                ).forEach(track -> trackCollection.add(track) );
-*/
-
-        return trackCollection;
-    }
-
     public Album createAlbum(Album album){
         //TODO: Implement this CRUD function
         return album;
     }
+
     public Album getAlbum(int id){
         Album album = new Album(id, "");
         //TODO: Implement this CRUD function
+        //Get album and set tracks using getTracksByAlbumId(id) in TracksDAO
         return album;
     }
+
+    public Collection<Album> getAllAlbums(){
+        Collection<Album> albums = new ArrayList<Album>();
+        this.jdbcTemplate.query(
+                "SELECT * FROM albums", new Object[] { },
+                (rs, rowNum) -> new Album(rs.getInt("id"), rs.getString("title"))
+        ).forEach(album -> albums.add(album));
+
+        return albums;
+    }
+
+    public Album updateAlbum(Album album){
+        //TODO: Implement this CRUD function
+        return album;
+    }
+
+    public boolean deleteAlbum(Album album){
+        boolean success = false;
+        //TODO: Implement this CRUD function
+        return success;
+    }
+
 
 
 }

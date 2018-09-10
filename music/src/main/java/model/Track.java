@@ -1,13 +1,21 @@
 package main.java.model;
 
 public class Track {
-    private int id;
-    private String title, albumTitle;
+    private int id, albumId;
+    private String title ;
 
-    public Track(int id, String title, String albumTitle) {
+    public Track(int id, String title, int albumId) {
         this.id = id;
         this.title = title;
-        this.albumTitle = albumTitle;
+        this.albumId = albumId;
+    }
+    public Track(int id) {
+        this.id = id;
+    }
+
+    public Track(String title, int albumId) {
+        this.title = title;
+        this.albumId = albumId;
     }
 
     public int getId() {
@@ -26,12 +34,12 @@ public class Track {
         this.title = title;
     }
 
-    public String getAlbumTitle() {
-        return albumTitle;
+    public int getAlbumId() {
+        return albumId;
     }
 
-    public void setAlbumTitle(String albumTitle) {
-        this.albumTitle = albumTitle;
+    public void setAlbumId(int albumId) {
+        this.albumId = albumId;
     }
 
     @Override
