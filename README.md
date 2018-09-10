@@ -19,6 +19,6 @@ You are expected to successfully complete the following:
 
 ### Submission
 
--In GitHub, upload all code, and add the TAs as collaborators.
-	-Do NOT make changes after the deadline.  We will use the final timestamp as the submission time.
--In Canvas, provide your GitHub username and a link to this project’s repository.
+- In GitHub, upload all code, and add the TAs as collaborators.
+  - Do NOT make changes after the deadline.  We will use the final timestamp as the submission time.
+- In Canvas, provide your GitHub username and a link to this project’s repository.
