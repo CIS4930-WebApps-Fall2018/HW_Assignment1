@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import main.java.dao.*;
+import main.java.model.*;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,7 +52,7 @@ public class Application implements CommandLineRunner {
 
         jdbcTemplate.query(
                 "SELECT * FROM albums", new Object[] { },
-                (rs, rowNum) -> new AlbumDAO(rs.getInt("id"), rs.getString("title"),jdbcTemplate)
+                (rs, rowNum) -> new Album(rs.getInt("id"), rs.getString("title"))
         ).forEach(album -> log.info(album.toString()));
 
 

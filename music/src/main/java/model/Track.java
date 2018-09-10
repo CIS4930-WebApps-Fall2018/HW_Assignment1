@@ -4,7 +4,7 @@ public class Track {
     private int id;
     private String title, albumTitle;
 
-    public TrackDAO(int id, String title, String albumTitle) {
+    public Track(int id, String title, String albumTitle) {
         this.id = id;
         this.title = title;
         this.albumTitle = albumTitle;
@@ -33,7 +33,6 @@ public class Track {
     public void setAlbumTitle(String albumTitle) {
         this.albumTitle = albumTitle;
     }
-
 
     @Override
     public String toString() {

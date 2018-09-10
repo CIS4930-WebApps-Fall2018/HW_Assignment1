@@ -2,7 +2,7 @@ package main.java.model;
 
 import java.util.Collection;
 
-public class AlbumDAO {
+public class Album {
     private int id;
     private String title;
     private Collection<Track> tracks;
