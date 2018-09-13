@@ -1,4 +1,4 @@
-package main.java.main;
+package main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import main.java.dao.*;
-import main.java.model.*;
+import dao.*;
+import model.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,14 +34,14 @@ public class Application implements CommandLineRunner {
 
         log.info("Creating tables");
 
-        jdbcTemplate.execute("DROP TABLE tracks IF EXISTS");
+        jdbcTemplate.execute("DROP TABLE IF EXISTS tracks");
         jdbcTemplate.execute("CREATE TABLE tracks(" +
                 "id SERIAL, title VARCHAR(255), album INT)");
         trackDAO.createTrack(new Track("Track 1", 42));
         trackDAO.createTrack(new Track("Track 2", 42));
         trackDAO.createTrack(new Track ("Track 3", 42));
 
-        jdbcTemplate.execute("DROP TABLE albums IF EXISTS");
+        jdbcTemplate.execute("DROP TABLE IF EXISTS albums");
         jdbcTemplate.execute("CREATE TABLE albums(" +
                 "id INT, title VARCHAR(255))");
 

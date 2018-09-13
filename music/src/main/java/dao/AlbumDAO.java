@@ -1,8 +1,8 @@
-package main.java.dao;
+package dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import main.java.model.*;
+import model.*;
 import java.util.Collection;
 import java.util.ArrayList;
 
