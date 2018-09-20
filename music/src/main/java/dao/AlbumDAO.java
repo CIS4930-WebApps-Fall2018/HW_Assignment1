@@ -1,5 +1,6 @@
 package dao;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import model.*;
@@ -15,13 +16,21 @@ public class AlbumDAO {
 
     public Album createAlbum(Album album){
         //TODO: Implement this CRUD function
+        String query = "INSERT into albums (id, title) values (?,?)";
+        this.jdbcTemplate.update(query, album.getId(), album.getTitle());
         return album;
     }
 
     public Album getAlbum(int id){
-        Album album = new Album(id, "");
         //TODO: Implement this CRUD function
         //Get album and set tracks using getTracksByAlbumId(id) in TracksDAO
+        String query = "SELECT * FROM albums WHERE id = ?";
+        Album album = this.jdbcTemplate.queryForObject(query, new Object[]{id},
+                new BeanPropertyRowMapper<>(Album.class));
+        TrackDAO trackDAO = new TrackDAO(jdbcTemplate);
+        //Get album and set tracks using getTracksByAlbumId(id) in TracksDAO
+        album.setTracks(trackDAO.getTracksByAlbumId(id));
+
         return album;
     }
 

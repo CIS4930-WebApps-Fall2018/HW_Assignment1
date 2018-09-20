@@ -32,21 +32,22 @@ public class Application implements CommandLineRunner {
         AlbumDAO albumDAO = new AlbumDAO(jdbcTemplate);
         TrackDAO trackDAO = new TrackDAO(jdbcTemplate);
 
-        log.info("Creating tables");
-
-        jdbcTemplate.execute("DROP TABLE IF EXISTS tracks");
-        jdbcTemplate.execute("CREATE TABLE tracks(" +
-                "id SERIAL, title VARCHAR(255), album INT)");
-        trackDAO.createTrack(new Track("Track 1", 42));
-        trackDAO.createTrack(new Track("Track 2", 42));
-        trackDAO.createTrack(new Track ("Track 3", 42));
-
-        jdbcTemplate.execute("DROP TABLE IF EXISTS albums");
-        jdbcTemplate.execute("CREATE TABLE albums(" +
-                "id INT, title VARCHAR(255))");
+//        log.info("Creating tables");
+//
+//        jdbcTemplate.execute("DROP TABLE IF EXISTS tracks");
+//        jdbcTemplate.execute("CREATE TABLE tracks(" +
+//                "id SERIAL, title VARCHAR(255), album INT)");
+//        trackDAO.createTrack(new Track("Track 1", 42));
+//        trackDAO.createTrack(new Track("Track 2", 42));
+//        trackDAO.createTrack(new Track ("Track 3", 42));
+//
+//        jdbcTemplate.execute("DROP TABLE IF EXISTS albums");
+//        jdbcTemplate.execute("CREATE TABLE albums(" +
+//                "id INT, title VARCHAR(255))");
 
         albumDAO.createAlbum(new Album (42, "Album 1"));
         albumDAO.getAllAlbums().forEach(album -> log.info(album.toString()));
+        log.info(albumDAO.getAlbum(2).toString());
 
     }
 }
