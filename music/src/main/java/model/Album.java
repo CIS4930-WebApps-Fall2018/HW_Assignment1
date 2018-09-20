@@ -7,6 +7,10 @@ public class Album {
     private String title;
     private Collection<Track> tracks;
 
+    //Default constructor to support BeanPropertyRowMapper
+    public Album() {
+    }
+
     public Album(int id, String title) {
         this.id = id;
         this.title = title;

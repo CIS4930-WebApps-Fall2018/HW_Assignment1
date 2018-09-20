@@ -4,6 +4,10 @@ public class Track {
     private int id, albumId;
     private String title ;
 
+    //Default constructor to support BeanPropertyRowMapper
+    public Track() {
+    }
+
     public Track(int id, String title, int albumId) {
         this.id = id;
         this.title = title;
